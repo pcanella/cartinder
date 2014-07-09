@@ -19,18 +19,45 @@ module.exports = function (app) {
 
     var model = new IndexModel();
 // var url = require('url');
-var obj={
-            'cars': []
-        };
+
 
     app.get('/', function (req, res) { 
 
 var url = require('url');
 var url_parts = url.parse(req.url, true);
 var query = url_parts.query;
-console.log(req.query);
- 
-request("http://www.autotrader.com/cars-for-sale/Subaru/BRZ/San+Jose+CA-95125?&startYear=2012&endYear=2015&makeCode1=Subaru&modelCode1=BRZ&searchRadius=100&showcaseOwnerId=100008316&startYear=1981&Log=0&showcaseListingId=371588101&showcaseOwnerId=100008316&captureSearch=true&Log=0", function (error, response, body) {
+
+var params = {
+    'make': req.query.make.toUpperCase() || '',
+    'model': req.query.model.toUpperCase() || '',
+    'zip': req.query.zip || '95125',
+    'startYear': req.query.startYear || '1981',
+    'endYear': req.query.endYear || '2014',
+    'radius': req.query.radius || '1000'
+};
+
+var requestURL = 'http://www.autotrader.com/cars-for-sale/' + params.make + '/' + params.model + '/' + 'San+Jose+CA-95125?zip=' + params.zip + '&startYear=' + params.startYear + '&endYear=' + params.endYear + '&makeCode1=' + params.make + '&modelCode1=' + params.model + '&searchRadius=' + params.radius;
+
+
+console.log(requestURL);
+
+/*PARAMS
+ *
+ *  Make
+ *  Model
+ *  Zip
+ *  startYear
+ *  endYear
+ *  radius
+ *
+'http://www.autotrader.com/cars-for-sale/' + params.make + '/' + params.model + '/' + 'San+Jose+CA-95125?zip=' + params.zip + '&startYear=' + params.startYear + '&endYear=' + params.endYear + '&makeCode1=' + params.make + '&modelCode1=' + params.model + '&searchRadius=' + radius
+
+
+ */
+request(requestURL, function (error, response, body) {
+    var obj={
+            'cars': []
+        };
     if (!error) {
 
         

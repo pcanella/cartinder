@@ -1,5 +1,5 @@
 {>"layouts/master" /}
 {<body}
     <h1>{@pre type="content" key="greeting"/}!!!;flkdsajfjkl</h1>
-    <pre style="width:500px">{data}</pre>
+    <pre style="white-space: pre-wrap;width:500px">{data}</pre>
 {/body}
