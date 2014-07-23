@@ -15,6 +15,34 @@ module.exports = function UserCarsModel() {
 
     };
 
+
+    this.getUserCar = function(user_id) {
+        var collectionPromise = promise.defer();
+        var sql = 'SELECT * FROM standard_cars s JOIN user_cars u WHERE s.id = u.car_id && u.user_id =' + user_id;
+        db.query(sql, function(rows) {
+                        collectionPromise.resolve(rows);
+                    });
+                return collectionPromise.promise;
+    };
+
+     this.getTotalCarCount = function() {
+        var collectionPromise = promise.defer();
+        var sql = 'SELECT COUNT(id) FROM user_cars';
+        db.query(sql, function(rows) {
+                        collectionPromise.resolve(rows);
+                    });
+                return collectionPromise.promise;
+    };
+
+    this.getRandomCar = function() {
+         var collectionPromise = promise.defer();
+        var sql = 'SELECT user_id FROM users ORDER BY RAND() LIMIT 1';
+        db.query(sql, function(rows) {
+                        collectionPromise.resolve(rows);
+                    });
+                return collectionPromise.promise;
+    };
+
     // this.getUserName = function(userId) {
     //     var sql = 'SELECT username FROM users WHERE userid=' + userId;
     //       var collectionPromise = promise.defer();

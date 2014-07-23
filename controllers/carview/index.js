@@ -1,6 +1,6 @@
 'use strict';
 
-var CollectionModel = require('../../models/cars');
+var CollectionModel = require('../../models/user_cars');
 var model = new CollectionModel();
 
 module.exports = function(app) {
@@ -11,16 +11,14 @@ module.exports = function(app) {
     // });
 
     // R in CRUD
-    app.get('/cars', function(req, res) {
-          res.header("Content-Type", "application/json");
+    app.get('/carview', function(req, res) {
+          res.header("Content-Type", "text/html");
+        
 
-        //res.render('cars', model);
-    console.log(req.query);
-    var modelPromise = model.getCar(req.query.carId);
+    var modelPromise = model.getUserCar(1);
 
         modelPromise.then(function(model) {
-         res.setHeader('Content-Type', 'application/json');
-        res.end(JSON.stringify(model[0]));
+        res.render('carview', model[0]);
     })
         .fail(function(err) {
             console.log(err);

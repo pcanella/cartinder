@@ -1,0 +1,34 @@
+{>"layouts/master" /}
+
+{<body}
+
+<h4 class="basics">The Basics</h4>
+<table class="table table-striped car-table">
+      <thead>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Make</td>
+          <td>{make}</td>
+        
+        </tr>
+        <tr>
+           <td>Model</td>
+          <td>{model}</td>
+        </tr>
+
+        <tr>
+          <td>Year</td>
+          <td>{year}</td>
+        </tr>
+
+        <tr>
+        <td>Transmission</td>
+          <td>{transmission}</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+
+{/body}
