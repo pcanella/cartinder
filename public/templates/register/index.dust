@@ -1,1 +1,1 @@
- {message}
+ <pre>{message}</pre>
