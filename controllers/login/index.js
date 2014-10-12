@@ -8,7 +8,6 @@ module.exports = function (router) {
 
     var model = new LoginModel();
 
-
     router.get('/login', function (req, res) {
         
         res.format({

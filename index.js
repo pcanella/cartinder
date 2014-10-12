@@ -1,6 +1,5 @@
 'use strict';
 
-
 var kraken = require('kraken-js'),
     app = {};
 
@@ -25,12 +24,11 @@ app.requestAfterRoute = function requestAfterRoute(server) {
     // Run after all routes have been added.
 };
 
-
 if (require.main === module) {
     kraken.create(app).listen(function (err, server) {
         if (err) {
             console.error(err.stack);
-        }
+        }        
     });
 }
 

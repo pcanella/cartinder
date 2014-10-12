@@ -2,12 +2,7 @@
 
 {<body}
     <h1>Register</h1>
-    <div class="input-group">
-  <span class="input-group-addon">@</span>
-  <!--NOTE: THIS should appear after FB login and redirect! So if they are logged into FB, this should appear -->
-  <input type="text" class="form-control" placeholder="Username">
-</div>
 
-  <img class="fb-login" src="/images/fblogin.png"/>
+  <img class="fb-login hide" src="/images/fblogin.png"/>
 
 {/body}

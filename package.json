@@ -19,9 +19,7 @@
     "less": "^1.7.0",
     "mysql": "^2.2.0",
     "livereload2": "^1.0.1",
-    "q": "^1.0.1",
-    "passport": "*",
-    "passport-facebook": "*"
+    "q": "^1.0.1"
   },
   "devDependencies": {
     "mocha": "^1.17.0",

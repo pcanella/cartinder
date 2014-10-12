@@ -9,7 +9,7 @@ module.exports = function RegisterModel() {
         var collectionPromise = promise.defer();
         var sql = 'INSERT INTO users (`facebook-id`) VALUES (' + fb_id + ')';
         db.query(sql, function(rows) {
-                        console.log(rows);
+            console.log('setfbid');
                         collectionPromise.resolve(rows);
                     });
                 return collectionPromise.promise;
@@ -21,15 +21,26 @@ module.exports = function RegisterModel() {
       var collectionPromise = promise.defer();
         var sql = 'SELECT `facebook-id` FROM users WHERE `facebook-id` =' + fb_id;
         db.query(sql, function(rows) {
-                    
+                                console.log('checkIfRegistered');
+
                     if(rows.length > 0)
                         collectionPromise.resolve(true);
                     else
                         collectionPromise.resolve(false);
 
                     });
-              console.log(collectionPromise.promise);
               return collectionPromise.promise;
+    };
+
+
+        this.getUserId = function(fb_id) {
+            var collectionPromise = promise.defer();
+            console.log("TEST", fb_id);
+            var sql = 'SELECT `user_id` FROM users WHERE `facebook-id` =' + fb_id;
+            db.query(sql, function(rows) {
+                collectionPromise.resolve(rows);
+            });
+            return collectionPromise.promise;
     };
 
     // this.getUserName = function(userId) {
@@ -73,7 +84,7 @@ module.exports = function RegisterModel() {
 
     //};
 
-       this.dbQuery = function(sql, promise, callback) {
+       this.dbQuery = function(sql, callback) {
 
         db.query(sql, function(rows) {
             // if(rows.insertId !== undefined){

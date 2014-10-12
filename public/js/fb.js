@@ -10,7 +10,7 @@
         });
 
 $('.fb-login').on('click', function(e){
-    window.open('https://www.facebook.com/dialog/oauth?client_id=676992922389202&scope=public_profile,email&redirect_uri=http://LM-SJC-00872307.local:8000/login', '_self');
+    window.open('https://www.facebook.com/dialog/oauth?client_id=676992922389202&scope=public_profile,email&redirect_uri=http://LM-SJC-00872307.local:8000/createUser', '_self');
 });
 
 $('.fblogout').on('click', function(e){
@@ -21,12 +21,26 @@ $('.fblogout').on('click', function(e){
 FB.getLoginStatus(function(response) {
     $('.fblogin').hide();
     console.log(response);
-    $('body').append(response.status);
-  if (response.status === 'connected') {
+    //$('body').append(response.status);
+    // NEED SOME SORT OF FLAG FOR AUTHENTICATION
+    // TEMPORARY SOLUTION BELOW
+    var t = location.href.split('/');
+    var last = t[t.length -1];
+    console.log(last);
+
+  if (response && response.status === 'connected' && last === 'createUser') {
+       $.ajax ({
+    url: 'register',
+    type: "POST",
+    data: JSON.stringify({"authToken": response.authResponse.accessToken, "userid": response.authResponse.userID }),
+    dataType: "json",
+    contentType: "application/json; charset=utf-8"
+  });
+
         $('body').append(response.authResponse.userID);
 
       }else{
-            $('.fblogout').hide();
+            $('.fb-login').removeClass('hide');
       }
      
   });

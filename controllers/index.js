@@ -38,9 +38,6 @@ var params = {
 
 var requestURL = 'http://www.autotrader.com/cars-for-sale/' + params.make + '/' + params.model + '/' + 'San+Jose+CA-95125?zip=' + params.zip + '&startYear=' + params.startYear + '&endYear=' + params.endYear + '&makeCode1=' + params.make + '&modelCode1=' + params.model + '&searchRadius=' + params.radius;
 
-
-console.log(requestURL);
-
 /*PARAMS
  *
  *  Make
