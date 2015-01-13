@@ -1,4 +1,4 @@
- {
+{
   "name": "colsvc",
   "version": "0.1.0",
   "description": "mysql-based collection service",
@@ -9,16 +9,21 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "kraken-js": "^0.7.0",
-    "express": "~3.4.4",
-    "nconf": "^0.6.8",
-    "dustjs-helpers": "^1.2.0",
-    "dustjs-linkedin": "^2.3.4",
     "adaro": "^0.1.5",
-    "makara": "^0.3.4",
+    "connect": "^3.3.2",
+    "dustjs-helpers": "^1.4.0",
+    "dustjs-linkedin": "^2.5.0",
+    "express": "~3.4.4",
+    "kraken-js": "^2.0",
     "less": "^1.7.0",
-    "mysql": "^2.2.0",
     "livereload2": "^1.0.1",
+    "makara": "^0.3.4",
+    "meddleware": "^2.0.0",
+    "memcache": "^0.3.0",
+    "mysql": "^2.2.0",
+    "nconf": "^0.6.8",
+    "passport-facebook": "^1.0.3",
+    "persistent-auth": "0.0.4",
     "q": "^1.0.1"
   },
   "devDependencies": {

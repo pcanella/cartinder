@@ -27,9 +27,9 @@ module.exports = function myCarModel() {
     };
 
     // TODO: Add a check - if they have other pics, don't make profile_image true, else make profile image true
-    this.setUserImagePath = function(user_id, filepath) {
+    this.setUserImagePath = function(fb_id, user_id, filepath) {
         var imagePromise = promise.defer();
-        var sql = 'INSERT INTO user_images (`user_id`, `image_loc`, `profile_image`) VALUES(' + user_id + ',"' + filepath + '", false)';
+        var sql = 'INSERT INTO user_images (`facebook_id`, `user_id`, `image_loc`, `profile_image`) VALUES(' + fb_id + ',"' + user_id + '","' + filepath + '", false)';
         db.query(sql, function(rows) {
             imagePromise.resolve(rows);
         });
@@ -37,22 +37,38 @@ module.exports = function myCarModel() {
     };
 
     this.getUserIdFromFacebookId = function(facebook_id) {
-        var imagePromise = promise.defer();
-        var sql = 'SELECT user_id from users WHERE `facebook-id` =' + facebook_id;
-        db.query(sql, function(rows) {
-            imagePromise.resolve(rows);
-        });
-        return imagePromise.promise;
+            console.log('getUserIdFromFacebookId');
+            var fbPromise = promise.defer();
+            if (facebook_id !== '') {
+                var sql = 'SELECT user_id from users WHERE `facebook-id` =' + facebook_id;
+                db.query(sql, function(rows) {
+                if(typeof rows === 'undefined') {
+                    console.log(rows, 'crap!!!, undefined');
+                   fbPromise.resolve(false);
+                }else{
+                    fbPromise.resolve(rows);
+                }
+                });
+            }else{
+                fbPromise.resolve(false);
+            }
+        return fbPromise.promise;
     };
 
     this.userPageExists = function(id){
+        console.log('userpageexists');
         var userPagePromise = promise.defer();
         var sql = 'SELECT user_id from users WHERE `user_id` =' + id;
         db.query(sql, function(rows) {
-            if (rows.length > 0)
-                userPagePromise.resolve(true);
-            else
+             if(typeof rows === 'undefined') {
+                console.log('ugh');
                 userPagePromise.resolve(false);
+            };
+            if (rows.length > 0){
+                userPagePromise.resolve(true);
+            }else{
+                userPagePromise.resolve(false);
+            }
         });
         return userPagePromise.promise;
     };
@@ -60,9 +76,6 @@ module.exports = function myCarModel() {
        this.dbQuery = function(sql, promise, callback) {
 
         db.query(sql, function(rows) {
-            // if(rows.insertId !== undefined){
-            //     callback(rows.insertId);
-            // }
             callback(rows);
             promise.resolve(rows);
         });

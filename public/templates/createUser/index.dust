@@ -3,6 +3,8 @@
 {<body}
     <h1>Register</h1>
 
-  <img class="fb-login hide" src="/images/fblogin.png"/>
+  <img class="fb-login" src="/images/fblogin.png"/>
+
+  Please choose a username
 
 {/body}

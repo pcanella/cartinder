@@ -5,9 +5,9 @@ var promise = require('q'),
 db.connect();
 
 module.exports = function RegisterModel() {
-    this.setFbId = function(fb_id) {
+    this.setFBData = function(fb_data) {
         var collectionPromise = promise.defer();
-        var sql = 'INSERT INTO users (`facebook-id`) VALUES (' + fb_id + ')';
+        var sql = 'INSERT INTO users (`facebook-id`, `facebook-firstname`, `facebook-lastname`) VALUES (' + fb_data.userid + ', "' + fb_data.firstName + '", "' + fb_data.lastName + '")';
         db.query(sql, function(rows) {
             console.log('setfbid');
                         collectionPromise.resolve(rows);
@@ -21,12 +21,13 @@ module.exports = function RegisterModel() {
       var collectionPromise = promise.defer();
         var sql = 'SELECT `facebook-id` FROM users WHERE `facebook-id` =' + fb_id;
         db.query(sql, function(rows) {
-                                console.log('checkIfRegistered');
-
-                    if(rows.length > 0)
+                    if(rows.length > 0){
+                        console.log('this user is registered, ' + rows);
                         collectionPromise.resolve(true);
-                    else
+                    }else{
+                        console.log('this user is NOT registered');
                         collectionPromise.resolve(false);
+                    }
 
                     });
               return collectionPromise.promise;
@@ -35,7 +36,7 @@ module.exports = function RegisterModel() {
 
         this.getUserId = function(fb_id) {
             var collectionPromise = promise.defer();
-            console.log("TEST", fb_id);
+            //console.log("TEST", fb_id);
             var sql = 'SELECT `user_id` FROM users WHERE `facebook-id` =' + fb_id;
             db.query(sql, function(rows) {
                 collectionPromise.resolve(rows);

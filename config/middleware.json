@@ -10,17 +10,25 @@
        "csp": false,
        "p3p": false,
        "xframe": "SAMEORIGIN"
-     }
+     },
 //
 //      "compiler": {
 //          "dust": "templates",
 //          "less": "css"
 //      },
 //
-//      "session": {
-//          "module": "memory",
-//          "secret": "Rawrrrr!"
-//      },
+     "session": {
+         "module": "memory",
+         "secret": "Rawrrrr!"
+     }
+
+     // "ipban": {
+     //        "enabled": true,
+     //        "priority": 111,
+     //        "module": {
+     //            "name":"path:./lib/ipban"
+     //        }
+     //    }
 //
 //      "static": {
 //          "srcRoot": "path:./public",
