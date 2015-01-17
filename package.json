@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "adaro": "^0.1.5",
+    "async-waterfall": "^0.1.5",
     "connect": "^3.3.2",
     "dustjs-helpers": "^1.4.0",
     "dustjs-linkedin": "^2.5.0",

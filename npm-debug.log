@@ -1,19 +1,15 @@
 0 info it worked if it ends with ok
-1 verbose cli [ 'node',
-1 verbose cli   '/usr/local/bin/npm',
-1 verbose cli   'install',
-1 verbose cli   'node-memcache',
-1 verbose cli   '--save' ]
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'async-waterfall' ]
 2 info using npm@1.4.28
 3 info using node@v0.10.33
 4 warn package.json colsvc@0.1.0 No repository field.
-5 warn package.json refresh-token@0.0.2 No repository field.
-6 warn package.json http@0.0.0 http is also the name of a node core module.
-7 warn package.json http@0.0.0 No description
-8 warn package.json http@0.0.0 No repository field.
+5 warn package.json http@0.0.0 http is also the name of a node core module.
+6 warn package.json http@0.0.0 No description
+7 warn package.json http@0.0.0 No repository field.
+8 warn package.json refresh-token@0.0.2 No repository field.
 9 verbose readDependencies using package.json deps
-10 verbose cache add [ 'node-memcache', null ]
-11 verbose cache add name=undefined spec="node-memcache" args=["node-memcache",null]
+10 verbose cache add [ 'async-waterfall', null ]
+11 verbose cache add name=undefined spec="async-waterfall" args=["async-waterfall",null]
 12 verbose parsed url { protocol: null,
 12 verbose parsed url   slashes: null,
 12 verbose parsed url   auth: null,
@@ -23,71 +19,48 @@
 12 verbose parsed url   hash: null,
 12 verbose parsed url   search: null,
 12 verbose parsed url   query: null,
-12 verbose parsed url   pathname: 'node-memcache',
-12 verbose parsed url   path: 'node-memcache',
-12 verbose parsed url   href: 'node-memcache' }
-13 silly lockFile 6c0e7fa9-node-memcache node-memcache
-14 verbose lock node-memcache /Users/pcanella/.npm/6c0e7fa9-node-memcache.lock
-15 silly lockFile 6c0e7fa9-node-memcache node-memcache
-16 silly lockFile 6c0e7fa9-node-memcache node-memcache
-17 verbose addNamed [ 'node-memcache', '' ]
+12 verbose parsed url   pathname: 'async-waterfall',
+12 verbose parsed url   path: 'async-waterfall',
+12 verbose parsed url   href: 'async-waterfall' }
+13 silly lockFile 3f70616d-async-waterfall async-waterfall
+14 verbose lock async-waterfall /Users/pcanella/.npm/3f70616d-async-waterfall.lock
+15 silly lockFile 3f70616d-async-waterfall async-waterfall
+16 silly lockFile 3f70616d-async-waterfall async-waterfall
+17 verbose addNamed [ 'async-waterfall', '' ]
 18 verbose addNamed [ null, '*' ]
-19 silly lockFile fae881a1-node-memcache node-memcache@
-20 verbose lock node-memcache@ /Users/pcanella/.npm/fae881a1-node-memcache.lock
-21 silly addNameRange { name: 'node-memcache', range: '*', hasData: false }
-22 verbose request where is /node-memcache
-23 verbose request registry http://registry.npmjs.org/
-24 verbose request id 8ce681f703f680e1
-25 verbose url raw /node-memcache
-26 verbose url resolving [ 'http://registry.npmjs.org/', './node-memcache' ]
-27 verbose url resolved http://registry.npmjs.org/node-memcache
-28 verbose request where is http://registry.npmjs.org/node-memcache
-29 info trying registry request attempt 1 at 22:57:29
-30 http GET http://registry.npmjs.org/node-memcache
-31 http 404 http://registry.npmjs.org/node-memcache
-32 verbose headers { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-32 verbose headers   'content-type': 'application/json',
-32 verbose headers   'cache-control': 'max-age=0',
-32 verbose headers   'content-length': '52',
-32 verbose headers   'accept-ranges': 'bytes',
-32 verbose headers   date: 'Sun, 09 Nov 2014 06:57:29 GMT',
-32 verbose headers   via: '1.1 varnish',
-32 verbose headers   age: '0',
-32 verbose headers   connection: 'keep-alive',
-32 verbose headers   'x-served-by': 'cache-sjc3124-SJC',
-32 verbose headers   'x-cache': 'MISS',
-32 verbose headers   'x-cache-hits': '0',
-32 verbose headers   'x-timer': 'S1415516249.568925,VS0,VE150' }
-33 silly registry.get cb [ 404,
-33 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
-33 silly registry.get     'content-type': 'application/json',
-33 silly registry.get     'cache-control': 'max-age=0',
-33 silly registry.get     'content-length': '52',
-33 silly registry.get     'accept-ranges': 'bytes',
-33 silly registry.get     date: 'Sun, 09 Nov 2014 06:57:29 GMT',
-33 silly registry.get     via: '1.1 varnish',
-33 silly registry.get     age: '0',
-33 silly registry.get     connection: 'keep-alive',
-33 silly registry.get     'x-served-by': 'cache-sjc3124-SJC',
-33 silly registry.get     'x-cache': 'MISS',
-33 silly registry.get     'x-cache-hits': '0',
-33 silly registry.get     'x-timer': 'S1415516249.568925,VS0,VE150' } ]
-34 silly lockFile fae881a1-node-memcache node-memcache@
-35 silly lockFile fae881a1-node-memcache node-memcache@
-36 error 404 404 Not Found: node-memcache
-36 error 404
-36 error 404 'node-memcache' is not in the npm registry.
-36 error 404 You should bug the author to publish it
-36 error 404 It was specified as a dependency of 'colsvc'
-36 error 404
-36 error 404 Maybe try 'npm search memcache'
-36 error 404
-36 error 404 Note that you can also install from a
-36 error 404 tarball, folder, or http url, or git url.
-37 error System Darwin 13.2.0
-38 error command "node" "/usr/local/bin/npm" "install" "node-memcache" "--save"
-39 error cwd /Users/pcanella/projects/cartinder
-40 error node -v v0.10.33
-41 error npm -v 1.4.28
-42 error code E404
-43 verbose exit [ 1, true ]
+19 silly lockFile cf182711-async-waterfall async-waterfall@
+20 verbose lock async-waterfall@ /Users/pcanella/.npm/cf182711-async-waterfall.lock
+21 silly addNameRange { name: 'async-waterfall', range: '*', hasData: false }
+22 verbose request where is /async-waterfall
+23 verbose request registry https://npm.paypal.com/
+24 verbose request id 39873770b22fd507
+25 verbose url raw /async-waterfall
+26 verbose url resolving [ 'https://npm.paypal.com/', './async-waterfall' ]
+27 verbose url resolved https://npm.paypal.com/async-waterfall
+28 verbose request where is https://npm.paypal.com/async-waterfall
+29 info trying registry request attempt 1 at 00:42:42
+30 http GET https://npm.paypal.com/async-waterfall
+31 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND
+32 info trying registry request attempt 2 at 00:42:52
+33 http GET https://npm.paypal.com/async-waterfall
+34 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND
+35 info trying registry request attempt 3 at 00:43:52
+36 http GET https://npm.paypal.com/async-waterfall
+37 silly lockFile cf182711-async-waterfall async-waterfall@
+38 silly lockFile cf182711-async-waterfall async-waterfall@
+39 error network getaddrinfo ENOTFOUND
+39 error network This is most likely not a problem with npm itself
+39 error network and is related to network connectivity.
+39 error network In most cases you are behind a proxy or have bad network settings.
+39 error network
+39 error network If you are behind a proxy, please make sure that the
+39 error network 'proxy' config is set properly.  See: 'npm help config'
+40 error System Darwin 13.2.0
+41 error command "node" "/usr/local/bin/npm" "install" "async-waterfall"
+42 error cwd /Users/pcanella/projects/cartinder
+43 error node -v v0.10.33
+44 error npm -v 1.4.28
+45 error syscall getaddrinfo
+46 error code ENOTFOUND
+47 error errno ENOTFOUND
+48 verbose exit [ 1, true ]

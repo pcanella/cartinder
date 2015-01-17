@@ -14,8 +14,6 @@
 
 <h3>Username's Car</h3>
 
-{userEdit} - LOL
-
 
  <!--    <div class="carousel slide" id="carousel-359003">
                 <ol class="carousel-indicators">
@@ -56,14 +54,13 @@
                 <ol class="carousel-indicators">
                     <li class="active" data-slide-to="0" data-target="#carousel-238632">
                     </li>
-                    <li data-slide-to="1" data-target="#carousel-238632">
+                    <li data-slide-to="1" data-target="#carousel-238633">
                     </li>
-                    <li data-slide-to="2" data-target="#carousel-238632">
+                    <li data-slide-to="2" data-target="#carousel-238634">
                     </li>
                 </ol>
                 <div class="carousel-inner">
                     {#userImages}
-
                     <div class="item {@eq key="{$idx}" value="0"}active{/eq}">
                         <img alt="" src="{image}" />
                         <div class="carousel-caption">
