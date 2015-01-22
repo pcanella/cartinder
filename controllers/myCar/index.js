@@ -29,67 +29,62 @@ module.exports = function(router) {
         waterfall([
 
             function(callback) {
-                obj.userPageExists = model.userPageExists(idAsInt);
-                callback(null, obj);
+                model.userPageExists(idAsInt, function(result) {
+                    obj.userPageExists = result;
+                    callback(null, obj);
+                });
             },
-            function(arg1, callback) {
-                obj.userIdFromFacebookId = model.getUserIdFromFacebookId(userFbId);
-                callback(null, obj);
+
+            function(obj, callback) {
+                model.userPageExists(idAsInt, function(result) {
+
+                    obj.userPageExists = result;
+                    callback(null, obj);
+                });
             },
-            function(arg1, callback) {
-                obj.pageId = model.getUserNameFromPageId(idAsInt);
-                // arg1 now equals 'three'
-                callback(null, obj);
-            }
-        ], function(err, result) {
-            console.log(obj);
-            if (obj.userIdFromFacebookId !== '' || obj.userIdFromFacebookId !== null) {
-                var uID = (obj.userIdFromFacebookId) ? obj.userIdFromFacebookId[0].user_id : '';
-                req.session.passport.user.pageId = uID;
-            } else {
-                var uID = '';
-            }
-            if (uID === idAsInt) {
-                model.userEdit = 'true';
-                model.
-                //console.log("model", model);
-                res.render('myCar/index', model);
-            } else if (obj.userPageExists === true) {
-                model.userEdit = 'false';
-                //console.log("model", model);
-                res.render('myCar/index', model);
-            } else {
-                res.render('errors/404', model);
-            }
-            // result now equals 'done'
-        });
 
-        //model.userPageExists(idAsInt).then(function(result) {
-        //model.getUserIdFromFacebookId(userFbId).then(function(actualUserId) {
-        // if (actualUserId !== '' || actualUserId !== null) {
-        //     var uID = (actualUserId) ? actualUserId[0].user_id : '';
-        //     req.session.passport.user.pageId = uID;
-        // } else {
-        //     var uID = '';
-        // }
-        // if (uID === idAsInt) {
-        //     model.userEdit = 'true';
-        //     model.
-        //     //console.log("model", model);
-        //     res.render('myCar/index', model);
-        // } else if (result === true) {
-        //     model.userEdit = 'false';
-        //     //console.log("model", model);
-        //     res.render('myCar/index', model);
-        // } else {
-        //     res.render('errors/404', model);
-        // }
-        //})
+            function(obj, callback) {
+                model.getUserIdFromFacebookId(userFbId, function(result) {
+                    if (userFbId !== '')
+                        obj.userIdFromFacebookId = result;
+                    callback(null, obj);
+                });
+            },
 
-        //        })
-        // .then(function(done) {
-        //     done();
-        // });
+            function(obj, callback) {
+                model.getUserNameFromPageId(idAsInt, function(result) {
+                    console.log('lolll', result);
+                    if (idAsInt !== '')
+                        obj.userNamesForPage = result;
+                    callback(null, obj);
+                });
+            },
+
+            function(err, result, done) {
+                if (userFbId !== '' && obj.userIdFromFacebookId !== '') {
+                    var uID = (obj.userIdFromFacebookId) ? obj.userIdFromFacebookId[0].user_id : '';
+                    req.session.passport.user.pageId = uID;
+                } else {
+                    var uID = '';
+                }
+                model.firstName = obj.userNamesForPage['facebook-firstname'];
+                model.lastName = obj.userNamesForPage['facebook-lastname'];
+                console.log(obj.userNamesForPage['facebook-lastname']);
+                //console.log(JSON.stringify(userNamesForPage));
+                if (uID === idAsInt) {
+                    model.userEdit = 'true';
+                    res.render('myCar/index', model);
+                } else if (obj.userPageExists === true) {
+                    model.userEdit = 'false';
+                    res.render('myCar/index', model);
+                } else {
+                    res.render('errors/404', model);
+                }
+                // result now equals 'done'
+                callback(null, done);
+
+            }
+        ]);
     });
 
     router.post('/myCar', function(req, res) {

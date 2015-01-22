@@ -12,7 +12,7 @@
 {/eq}
 
 
-<h3>Username's Car</h3>
+<h3>{firstName}'s Car</h3>
 
 
  <!--    <div class="carousel slide" id="carousel-359003">
