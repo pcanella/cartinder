@@ -1,8 +1,8 @@
 'use strict';
 
 
-var RegisterwithfbModel = require('../../models/registerWithFB');
-
+var RegisterwithfbModel = require('../../models/registerWithFB'),
+    uuid = require('node-uuid');
 
 module.exports = function(router) {
 
@@ -26,7 +26,9 @@ module.exports = function(router) {
                     userid: profile.id,
                     firstName: profile.name.givenName,
                     lastName: profile.name.familyName,
-                    authToken: accessToken
+                    authToken: accessToken,
+                    uuid: uuid.v1()
+
                 };
             //console.log(data);
 

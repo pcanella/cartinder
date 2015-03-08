@@ -37,9 +37,6 @@ module.exports = function myCarModel() {
     this.getUserNameFromFacebookId = function(fb_id) {
         var unamePromise = promise.defer();
         var sql = 'SELECT `facebook-firstname`, `facebook-lastname` FROM users WHERE `facebook-id`=' + fb_id;
-
-
-
         db.query(sql, function(err, rows, fields) {
             if (err) throw err;
             console.log('The solution is: ', rows[0].solution);
@@ -64,11 +61,22 @@ module.exports = function myCarModel() {
     };
 
     this.getUserIdFromFacebookId = function(facebook_id, callback) {
-        console.log('getUserIdFromFacebookId');
         if (facebook_id !== undefined && facebook_id !== '') {
             var sql = 'SELECT user_id from users WHERE `facebook-id` =' + facebook_id;
             db.query(sql, function(rows) {
                 return callback(rows);
+            });
+        } else {
+            return callback(null);
+        }
+    };
+
+
+    this.getFaceBookIdFromUserId = function(user_id, callback) {
+        if (user_id !== undefined && user_id !== '') {
+            var sql = 'SELECT `facebook-id` from users WHERE `user_id` =' + user_id;
+            db.query(sql, function(rows, done) {
+                callback(rows);
             });
         } else {
             return callback(null);
@@ -84,6 +92,24 @@ module.exports = function myCarModel() {
                 return callback(true);
             } else {
                 return callback(false);
+            }
+        });
+    };
+
+    this.getUserCar = function(id, callback) {
+        var sql = 'SELECT * FROM standard_cars INNER JOIN user_cars WHERE standard_cars.id = user_cars.car_id AND user_cars.user_id = ' + id;
+        db.query(sql, function(rows) {
+            callback(rows);
+        });
+    };
+
+    this.setUserCar = function(row, data, fbid, callback) {
+        var sql = 'INSERT INTO user_cars (`' + row + '`) VALUES(' + data + ') WHERE `user_id` = ' + fbid;
+        db.query(sql, function(rows) {
+            if (rows.length > 0) {
+                return callback(rows, 'successful');
+            } else {
+                return callback(false, 'not successful');
             }
         });
     };

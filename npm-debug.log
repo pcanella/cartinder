@@ -1,5 +1,5 @@
 0 info it worked if it ends with ok
-1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'async-waterfall' ]
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'node--uuid', '--save' ]
 2 info using npm@1.4.28
 3 info using node@v0.10.33
 4 warn package.json colsvc@0.1.0 No repository field.
@@ -8,8 +8,8 @@
 7 warn package.json http@0.0.0 No repository field.
 8 warn package.json refresh-token@0.0.2 No repository field.
 9 verbose readDependencies using package.json deps
-10 verbose cache add [ 'async-waterfall', null ]
-11 verbose cache add name=undefined spec="async-waterfall" args=["async-waterfall",null]
+10 verbose cache add [ 'node--uuid', null ]
+11 verbose cache add name=undefined spec="node--uuid" args=["node--uuid",null]
 12 verbose parsed url { protocol: null,
 12 verbose parsed url   slashes: null,
 12 verbose parsed url   auth: null,
@@ -19,48 +19,79 @@
 12 verbose parsed url   hash: null,
 12 verbose parsed url   search: null,
 12 verbose parsed url   query: null,
-12 verbose parsed url   pathname: 'async-waterfall',
-12 verbose parsed url   path: 'async-waterfall',
-12 verbose parsed url   href: 'async-waterfall' }
-13 silly lockFile 3f70616d-async-waterfall async-waterfall
-14 verbose lock async-waterfall /Users/pcanella/.npm/3f70616d-async-waterfall.lock
-15 silly lockFile 3f70616d-async-waterfall async-waterfall
-16 silly lockFile 3f70616d-async-waterfall async-waterfall
-17 verbose addNamed [ 'async-waterfall', '' ]
+12 verbose parsed url   pathname: 'node--uuid',
+12 verbose parsed url   path: 'node--uuid',
+12 verbose parsed url   href: 'node--uuid' }
+13 silly lockFile 5d9f6e7b-node-uuid node--uuid
+14 verbose lock node--uuid /Users/pcanella/.npm/5d9f6e7b-node-uuid.lock
+15 silly lockFile 5d9f6e7b-node-uuid node--uuid
+16 silly lockFile 5d9f6e7b-node-uuid node--uuid
+17 verbose addNamed [ 'node--uuid', '' ]
 18 verbose addNamed [ null, '*' ]
-19 silly lockFile cf182711-async-waterfall async-waterfall@
-20 verbose lock async-waterfall@ /Users/pcanella/.npm/cf182711-async-waterfall.lock
-21 silly addNameRange { name: 'async-waterfall', range: '*', hasData: false }
-22 verbose request where is /async-waterfall
+19 silly lockFile 6349dd91-node-uuid node--uuid@
+20 verbose lock node--uuid@ /Users/pcanella/.npm/6349dd91-node-uuid.lock
+21 silly addNameRange { name: 'node--uuid', range: '*', hasData: false }
+22 verbose request where is /node--uuid
 23 verbose request registry https://npm.paypal.com/
-24 verbose request id 39873770b22fd507
-25 verbose url raw /async-waterfall
-26 verbose url resolving [ 'https://npm.paypal.com/', './async-waterfall' ]
-27 verbose url resolved https://npm.paypal.com/async-waterfall
-28 verbose request where is https://npm.paypal.com/async-waterfall
-29 info trying registry request attempt 1 at 00:42:42
-30 http GET https://npm.paypal.com/async-waterfall
-31 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND
-32 info trying registry request attempt 2 at 00:42:52
-33 http GET https://npm.paypal.com/async-waterfall
-34 info retry will retry, error on last attempt: Error: getaddrinfo ENOTFOUND
-35 info trying registry request attempt 3 at 00:43:52
-36 http GET https://npm.paypal.com/async-waterfall
-37 silly lockFile cf182711-async-waterfall async-waterfall@
-38 silly lockFile cf182711-async-waterfall async-waterfall@
-39 error network getaddrinfo ENOTFOUND
-39 error network This is most likely not a problem with npm itself
-39 error network and is related to network connectivity.
-39 error network In most cases you are behind a proxy or have bad network settings.
-39 error network
-39 error network If you are behind a proxy, please make sure that the
-39 error network 'proxy' config is set properly.  See: 'npm help config'
-40 error System Darwin 13.2.0
-41 error command "node" "/usr/local/bin/npm" "install" "async-waterfall"
-42 error cwd /Users/pcanella/projects/cartinder
-43 error node -v v0.10.33
-44 error npm -v 1.4.28
-45 error syscall getaddrinfo
-46 error code ENOTFOUND
-47 error errno ENOTFOUND
-48 verbose exit [ 1, true ]
+24 verbose request id 721654c24d56fb9d
+25 verbose url raw /node--uuid
+26 verbose url resolving [ 'https://npm.paypal.com/', './node--uuid' ]
+27 verbose url resolved https://npm.paypal.com/node--uuid
+28 verbose request where is https://npm.paypal.com/node--uuid
+29 info trying registry request attempt 1 at 16:10:45
+30 http GET https://npm.paypal.com/node--uuid
+31 http 404 https://npm.paypal.com/node--uuid
+32 verbose headers { 'content-type': 'application/json; charset=utf-8',
+32 verbose headers   'x-registry': 'https://registry.npmjs.org/',
+32 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+32 verbose headers   'cache-control': 'max-age=0',
+32 verbose headers   'accept-ranges': 'bytes',
+32 verbose headers   via: '1.1 varnish',
+32 verbose headers   age: '0',
+32 verbose headers   'x-served-by': 'cache-lax1432-LAX',
+32 verbose headers   'x-cache': 'MISS',
+32 verbose headers   'x-cache-hits': '0',
+32 verbose headers   'x-timer': 'S1425773445.557032,VS0,VE74',
+32 verbose headers   'keep-alive': 'timeout=10, max=50',
+32 verbose headers   connection: 'Keep-Alive',
+32 verbose headers   'content-encoding': 'gzip',
+32 verbose headers   vary: 'accept-encoding',
+32 verbose headers   date: 'Sun, 08 Mar 2015 00:10:45 GMT',
+32 verbose headers   'transfer-encoding': 'chunked' }
+33 silly registry.get cb [ 404,
+33 silly registry.get   { 'content-type': 'application/json; charset=utf-8',
+33 silly registry.get     'x-registry': 'https://registry.npmjs.org/',
+33 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+33 silly registry.get     'cache-control': 'max-age=0',
+33 silly registry.get     'accept-ranges': 'bytes',
+33 silly registry.get     via: '1.1 varnish',
+33 silly registry.get     age: '0',
+33 silly registry.get     'x-served-by': 'cache-lax1432-LAX',
+33 silly registry.get     'x-cache': 'MISS',
+33 silly registry.get     'x-cache-hits': '0',
+33 silly registry.get     'x-timer': 'S1425773445.557032,VS0,VE74',
+33 silly registry.get     'keep-alive': 'timeout=10, max=50',
+33 silly registry.get     connection: 'Keep-Alive',
+33 silly registry.get     'content-encoding': 'gzip',
+33 silly registry.get     vary: 'accept-encoding',
+33 silly registry.get     date: 'Sun, 08 Mar 2015 00:10:45 GMT',
+33 silly registry.get     'transfer-encoding': 'chunked' } ]
+34 silly lockFile 6349dd91-node-uuid node--uuid@
+35 silly lockFile 6349dd91-node-uuid node--uuid@
+36 error 404 404 Not Found: node--uuid
+36 error 404
+36 error 404 'node--uuid' is not in the npm registry.
+36 error 404 You should bug the author to publish it
+36 error 404 It was specified as a dependency of 'colsvc'
+36 error 404
+36 error 404 Maybe try 'npm search  uuid'
+36 error 404
+36 error 404 Note that you can also install from a
+36 error 404 tarball, folder, or http url, or git url.
+37 error System Darwin 13.4.0
+38 error command "node" "/usr/local/bin/npm" "install" "node--uuid" "--save"
+39 error cwd /Users/pcanella/projects/cartinder
+40 error node -v v0.10.33
+41 error npm -v 1.4.28
+42 error code E404
+43 verbose exit [ 1, true ]
